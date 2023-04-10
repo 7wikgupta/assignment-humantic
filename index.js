@@ -16,7 +16,9 @@ app.use(function(req, res, next) {
     // { clientIp: '127.0.0.1', clientIpRoutable: false }
     next();
 });
-
+app.get("/", (req, res) => {
+  res.json({ message: "This is the main page, go to /users to access end points" });
+});
 
 app.use((req, res, next) => {
   // Check for the presence of the API key in the request headers
@@ -50,7 +52,7 @@ app.use(
   })
 );
 app.get("/", (req, res) => {
-  res.json({ message: "ok" });
+  res.json({ message: "This is the main page, go to /users to access end points" });
 });
 app.use("/users", userRouter);
 /* Error handler middleware */
